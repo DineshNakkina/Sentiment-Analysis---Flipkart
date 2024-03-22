@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review Analysis</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+   
+</head>
+
+<body>
+    <nav>
+        <ul class="navbar">
+            
+            <li class="navbar"><a href="/">Refresh</a></li>
+        </ul class="navbar">
+    </nav>
+    <div class="container">
+        <form action="/result" method="post">
+            <h3 style="text-align: center; margin-bottom: 15px;">Sentiment Analysis</h3>
+            <label>Share your Review 😊:</label>
+            <input type="text" name="text" value="{{ text }}" required>
+            <br>
+            <input type="submit" value="Check">
+        </form>
+        <ul>
+            {% if valid=='positive' %}
+            <li class="valid">Positive</li>
+            {% elif valid=='negative' %}
+            <li class="invalid">Negative</li>
+            {% endif %}
+        </ul>
+    </div>
+</body>
+
+</html>
